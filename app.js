@@ -1,27 +1,31 @@
-<section id="data-gate" class="view">
-    <h2 class="gold-text">Audit Complete.</h2>
-    <p class="subtitle">Enter your details to generate your 30-day blueprint.</p>
-    <div class="form-group">
-        <input type="text" id="user-name" placeholder="Full Name" required>
-        <input type="number" id="user-age" placeholder="Age" required>
-        <select id="user-status">
-            <option value="">Current Status</option>
-            <option value="Studying">Studying</option>
-            <option value="Working">Working</option>
-            <option value="Other">Other</option>
-        </select>
-        <input type="email" id="user-email" placeholder="Email Address" required>
-        <button class="btn-gold" onclick="saveDataAndShowResults()">GENERATE ANALYSIS</button>
-    </div>
-</section>
+function handleAnswer(pts) {
+    score += pts;
+    currentStep++;
+    if (currentStep < 10) {
+        updateQuestion();
+    } else {
+        // Show the data gate instead of results
+        document.getElementById('quiz').classList.remove('active');
+        document.getElementById('data-gate').classList.add('active');
+    }
+}
 
-<section id="results" class="view">
-    <div class="score-circle"><span id="final-score">0</span><small>/50</small></div>
-    <h2 id="level-title"></h2>
-    <div class="analysis-card"><p id="truth-text"></p></div>
-    <div class="blueprint-section">
-        <h3>30-Day Blueprint</h3>
-        <ul id="blueprint-list"></ul>
-    </div>
-    <button class="btn-secondary" onclick="location.reload()">RESTART</button>
-</section>
+function saveDataAndShowResults() {
+    const name = document.getElementById('user-name').value;
+    const age = document.getElementById('user-age').value;
+    const status = document.getElementById('user-status').value;
+    const email = document.getElementById('user-email').value;
+
+    if (!name || !age || !status || !email) {
+        alert("Please fill all fields to receive your audit.");
+        return;
+    }
+
+    // 1. Store the data in LocalStorage (you can see this in your browser)
+    const userData = { name, age, status, email, score, pillar: currentPillar, date: new Date().toLocaleDateString() };
+    localStorage.setItem('last_audit', JSON.stringify(userData));
+
+    // 2. Transition to Results
+    document.getElementById('data-gate').classList.remove('active');
+    showResults();
+}

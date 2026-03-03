@@ -1,41 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Think With Nishal | Life Audit</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div id="app" class="container">
-        <header><h1 class="logo">THINK WITH NISHAL</h1></header>
-        <main id="view-container">
-            <section id="landing" class="view active">
-                <h2 id="landing-title">Audit Your Life Before You Upgrade It.</h2>
-                <button id="start-btn" class="btn-gold" onclick="startAudit()">BEGIN AUDIT</button>
-            </section>
-            <section id="quiz" class="view">
-                <div class="progress-wrapper"><div id="progress-bar"></div></div>
-                <div id="q-number" class="gold-text"></div>
-                <h3 id="question-text"></h3>
-                <div class="options">
-                    <button class="opt-btn" onclick="handleAnswer(5)">YES</button>
-                    <button class="opt-btn" onclick="handleAnswer(3)">SOMETIMES</button>
-                    <button class="opt-btn" onclick="handleAnswer(0)">NO</button>
-                </div>
-            </section>
-            <section id="results" class="view">
-                <div class="score-circle"><span id="final-score">0</span><small>/50</small></div>
-                <h2 id="level-title"></h2>
-                <div class="analysis-card"><p id="truth-text"></p></div>
-                <div class="blueprint-section">
-                    <h3>30-Day Blueprint</h3>
-                    <ul id="blueprint-list"></ul>
-                </div>
-                <button class="btn-secondary" onclick="location.reload()">RESTART</button>
-            </section>
-        </main>
+<section id="data-gate" class="view">
+    <h2 class="gold-text">Audit Complete.</h2>
+    <p class="subtitle">Enter your details to generate your 30-day blueprint.</p>
+    <div class="form-group">
+        <input type="text" id="user-name" placeholder="Full Name" required>
+        <input type="number" id="user-age" placeholder="Age" required>
+        <select id="user-status">
+            <option value="">Current Status</option>
+            <option value="Studying">Studying</option>
+            <option value="Working">Working</option>
+            <option value="Other">Other</option>
+        </select>
+        <input type="email" id="user-email" placeholder="Email Address" required>
+        <button class="btn-gold" onclick="saveDataAndShowResults()">GENERATE ANALYSIS</button>
     </div>
-    <script src="app.js"></script>
-</body>
-</html>
+</section>
+
+<section id="results" class="view">
+    <div class="score-circle"><span id="final-score">0</span><small>/50</small></div>
+    <h2 id="level-title"></h2>
+    <div class="analysis-card"><p id="truth-text"></p></div>
+    <div class="blueprint-section">
+        <h3>30-Day Blueprint</h3>
+        <ul id="blueprint-list"></ul>
+    </div>
+    <button class="btn-secondary" onclick="location.reload()">RESTART</button>
+</section>

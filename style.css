@@ -1,13 +1,10 @@
-:root { --bg: #0a0a0a; --gold: #D4AF37; --surface: #141414; }
-body { background: var(--bg); color: #e0e0e0; font-family: sans-serif; margin: 0; text-align: center; }
-.container { max-width: 600px; margin: 0 auto; padding: 2rem; }
-.logo { font-size: 0.9rem; letter-spacing: 4px; color: var(--gold); }
-.view { display: none; }
-.view.active { display: block; }
-.btn-gold { background: var(--gold); color: #000; border: none; padding: 1rem; width: 100%; cursor: pointer; font-weight: bold; margin-top: 20px; }
-.opt-btn { display: block; width: 100%; padding: 1rem; margin: 10px 0; background: var(--surface); color: #fff; border: 1px solid #333; cursor: pointer; }
-.score-circle { font-size: 3rem; color: var(--gold); }
-.analysis-card { background: var(--surface); padding: 1rem; border-left: 3px solid var(--gold); text-align: left; margin: 20px 0; }
-.blueprint-section { text-align: left; padding: 10px; border: 1px dashed #333; }
-.progress-wrapper { height: 4px; background: #222; margin-bottom: 20px; }
-#progress-bar { height: 100%; background: var(--gold); width: 0%; transition: 0.3s; }
+.form-group { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.form-group input, .form-group select {
+    background: #141414;
+    border: 1px solid #333;
+    color: white;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+.form-group input:focus { border-color: var(--gold); outline: none; }
